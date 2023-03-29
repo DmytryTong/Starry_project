@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Starry Home</h1>
+    <p>Welcome to Starry Music-bar!</p>
+    <h2>Dynamic content</h2>
+    <p>In Starry we have:</p>
+    <ul>
+      <li>{{ num_bands }} <strong>bands</strong></li>
+      <li><strong>That represents in </strong> {{ num_genres }} <strong>genres</strong></li>
+      <li><strong>You can see them at</strong> {{ num_events }} <strong>events.</strong></li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    <p>First name: </p>
+  </h1>
+  {{ musician.first_name }}
+  <h1>
+    <p>Last name: </p>
+  </h1>
+  {{ musician.last_name }}
+  <h1>
+    Positions this musician can play on:
+  </h1>
+  <hr>
+    <ul>
+      {% for position in musician.position.all %}
+        <li>{{ position.name }}</li>
+      {% endfor %}
+    </ul>
+  <h1>
+    Bands this musician plays in:
+  </h1>
+  <hr>
+    <ul>
+      {% for rockband in musician.rockbands.all %}
+        <li>
+          <a href="{% url 'bar:rockband-detail' pk=rockband.id %}">
+          {{ rockband.band_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% if user.is_superuser %}
+  <a href="{% url 'bar:musician-delete' pk=musician.id %}" class="btn btn-danger link-to-page">
+    Delete
+  </a>
+  {% endif %}
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Return</a>
+  {% if user.is_superuser %}
+  <a href="{% url 'bar:musician-update' pk=musician.id %}" class="btn btn-secondary link-to-page">
+    Update
+  </a>
+  {% endif %}
+{% endblock %}

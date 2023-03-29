@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>
+    Positions List
+    <a href="{% url 'bar:position-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form.as_p }}
+  <input type="submit" class="btn btn-secondary" value="✅">
+  </form>
+
+  {% if position_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for position in position_list %}
+        <tr>
+          <td>
+              {{ position.id }}
+          </td>
+          <td>
+              {{ position.name }}
+          </td>
+          <td>
+              <a href="{% url 'bar:position-update' pk=position.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'bar:position-delete' pk=position.id %}">
+                Delete
+              </a>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no positions!</p>
+  {% endif %}
+{% endblock %}

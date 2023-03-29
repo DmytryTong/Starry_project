@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ genre.name }}
+  </h1>
+    <p>Description: {{ genre.description }}</p>
+  <h1>
+    Bands in Starry, which plays this genre:
+  </h1>
+  <hr>
+  <ul>
+    {% for rockband in genre.rockbands.all %}
+      <li>
+        <a href="{% url 'bar:rockband-detail' pk=rockband.id %}" >
+          {{ rockband.band_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Return</a>
+{% endblock %}

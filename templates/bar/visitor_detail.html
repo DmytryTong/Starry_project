@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Username: {{ visitor.username }}
+    <a href="{% url 'bar:visitor-delete' pk=visitor.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+  </h1>
+
+  <p><strong>First name:</strong> {{ visitor.first_name }}</p>
+  <p><strong>Last name:</strong> {{ visitor.last_name }}</p>
+
+  <div class="ml-3">
+    <h4>Event, you want to visit:</h4>
+
+    {% for event in visitor.events.all %}
+      <hr>
+        <p>
+          <strong>Event:</strong>
+          <a href="{% url 'bar:event-detail' pk=event.id %}">
+            {{ event.name }}
+          </a>
+        </p>
+    {% empty %}
+      <p>No events!</p>
+    {% endfor %}
+  </div>
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Return</a>
+{% endblock %}

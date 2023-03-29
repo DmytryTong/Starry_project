@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>
+    Events List
+    {% if user.is_superuser %}
+    <a href="{% url 'bar:event-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+    {% endif %}
+  </h1>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form.as_p }}
+  <input type="submit" class="btn btn-secondary" value="✅">
+  </form>
+
+  {% if event_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name:</th>
+      </tr>
+
+      {% for event in event_list %}
+        <tr>
+          <td>
+              {{ event.id }}
+          </td>
+          <td>
+            <a href="{% url "bar:event-detail" pk=event.id %} ">
+              {{ event.name }}
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no musicians!</p>
+  {% endif %}
+{% endblock %}

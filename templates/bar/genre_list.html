@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>
+    Genres List
+    {% if user.is_superuser %}
+    <a href="{% url 'bar:genre-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+    {% endif %}
+  </h1>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form.as_p }}
+  <input type="submit" class="btn btn-secondary" value="✅">
+  </form>
+
+  {% if genre_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        {% if user.is_superuser %}
+        <th>Update</th>
+        <th>Delete</th>
+        {% endif %}
+      </tr>
+
+      {% for genre in genre_list %}
+        <tr>
+          <td>
+              {{ genre.id }}
+          </td>
+          <td>
+            <a href="{% url "bar:genre-detail" pk=genre.id %} ">
+              {{ genre.name }}
+            </a>
+          </td>
+          {% if user.is_superuser %}
+          <td>
+              <a href="{% url 'bar:genre-update' pk=genre.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'bar:genre-delete' pk=genre.id %}">
+                Delete
+              </a>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no genres!</p>
+  {% endif %}
+{% endblock %}
