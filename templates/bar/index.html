@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Starry Home</h1>
+  <div class="title-text">
+    <p>Starry Home</p>
+  </div>
+  <div class="subtitle-text">
     <p>Welcome to Starry Music-bar!</p>
-    <h2>Dynamic content</h2>
     <p>In Starry we have:</p>
-    <ul>
-      <li>{{ num_bands }} <strong>bands</strong></li>
-      <li><strong>That represents in </strong> {{ num_genres }} <strong>genres</strong></li>
-      <li><strong>You can see them at</strong> {{ num_events }} <strong>events.</strong></li>
-    </ul>
-
+  </div>
+    <section class="container-home-page">
+      <article class="front-block">
+        <p>{{ num_events }}</p>
+        <p>Events in our schedule right now! </p>
+      </article>
+      <article class="front-block">
+        <p>{{ num_bands }}</p>
+        <p>Bands that will play your day!</p>
+      </article>
+      <article class="front-block">
+        <p>{{ num_musicians }}</p>
+        <p>Musicians that will perform for you!</p>
+      </article>
+    </section>
 {% endblock %}

@@ -5,7 +5,7 @@
   <form action="" method="post">
     {% csrf_token %}
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-danger">Cancel</a>
+    <input type="submit" value="Yes" class="btn btn-danger btn-custom">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-danger btn-reverse">Cancel</a>
   </form>
 {% endblock %}

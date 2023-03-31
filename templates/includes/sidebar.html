@@ -1,22 +1,23 @@
 <ul class="sidebar-nav list-group">
   {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'bar:visitor-detail' pk=user.id %}">Private cabinet</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-    <li class="list-group-item"><a href="{% url 'bar:visitor-create'%}">Create new visitor</a></li>
-  {% endif %}
-  {% if user.is_authenticated %}
-  <br>
+    <li class="list-group-item block-on-sidebar">User: <a class="nav-link" href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+    <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:visitor-detail' pk=user.id %}">Private cabinet</a></li>
+    <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>
+    {% else %}
+      <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
 
-  <li class="list-group-item font-on-sidebar"><a href="{% url 'bar:index' %}">Home</a></li>
-  <li class="list-group-item font-on-sidebar"><a href="{% url 'bar:event-list' %}">All events</a></li>
-  <li class="list-group-item font-on-sidebar"><a href="{% url 'bar:genre-list' %}">All genres</a></li>
-  <li class="list-group-item font-on-sidebar"><a href="{% url 'bar:rockband-list' %}">All bands</a></li>
-  <li class="list-group-item font-on-sidebar"><a href="{% url 'bar:musician-list' %}">All musicians</a></li>
+    <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:visitor-create'%}">Registration</a></li>
+    {% endif %}
+  <br>
+  {% if user.is_authenticated %}
+  <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:index' %}">Home</a></li>
+  <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:event-list' %}">All events</a></li>
+  <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:genre-list' %}">All genres</a></li>
+  <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:rockband-list' %}">All bands</a></li>
+  <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:musician-list' %}">All musicians</a></li>
   {% if user.is_superuser %}
-  <li class="list-group-item"><a href="{% url 'bar:position-list' %}">All positions</a></li>
+    <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:position-list' %}">All positions</a></li>
+    <li class="list-group-item block-on-sidebar"><a class="nav-link" href="{% url 'bar:visitor-list' %}">All visitors</a></li>
   {% endif %}
   {% endif %}
 </ul>

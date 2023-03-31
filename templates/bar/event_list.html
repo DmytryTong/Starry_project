@@ -5,15 +5,17 @@
   <h1>
     Events List
     {% if user.is_superuser %}
-    <a href="{% url 'bar:event-create' %}" class="btn btn-primary link-to-page">
+    <a href="{% url 'bar:event-create' %}" class="btn btn-primary btn-custom link-to-page">
       Create
     </a>
     {% endif %}
   </h1>
 
   <form action="" method="get" class="form-inline">
-    {{ search_form.as_p }}
-  <input type="submit" class="btn btn-secondary" value="✅">
+    <div>
+      {{ search_form.as_p }}
+      <input type="submit" class="btn btn-secondary btn-custom" value="Search">
+    </div>
   </form>
 
   {% if event_list %}
@@ -29,7 +31,7 @@
               {{ event.id }}
           </td>
           <td>
-            <a href="{% url "bar:event-detail" pk=event.id %} ">
+            <a class="list-link-style" href="{% url "bar:event-detail" pk=event.id %} ">
               {{ event.name }}
             </a>
           </td>

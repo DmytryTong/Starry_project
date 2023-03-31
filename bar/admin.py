@@ -18,6 +18,7 @@ admin.site.register(Rockband)
 admin.site.register(Event)
 # admin.site.register(Visitor, UserAdmin)
 
+
 @admin.register(Visitor)
 class DriverVisitor(UserAdmin):
     add_fieldsets = UserAdmin.add_fieldsets + (

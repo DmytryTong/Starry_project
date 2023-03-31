@@ -28,7 +28,7 @@ from bar.views import (
     EventDeleteView,
     VisitorDetailView,
     VisitorCreateView,
-    VisitorDeleteView, toggle_assign_to_events)
+    VisitorDeleteView, toggle_assign_to_events, VisitorListView)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -156,6 +156,11 @@ urlpatterns = [
         "events/<int:pk>/toggle-assign/",
         toggle_assign_to_events,
         name="toggle-events-assign",
+    ),
+    path(
+        "visitors/",
+        VisitorListView.as_view(),
+        name="visitor-list",
     ),
     path(
         "visitors/<int:pk>/",

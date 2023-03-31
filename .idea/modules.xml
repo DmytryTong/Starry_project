@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/py_project.iml" filepath="$PROJECT_DIR$/.idea/py_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/py-project-starry-music-bar.iml" filepath="$PROJECT_DIR$/.idea/py-project-starry-music-bar.iml" />
     </modules>
   </component>
 </project>

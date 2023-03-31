@@ -11,6 +11,7 @@
         crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
    {% load static %}
+    <link rel="shortcut icon" type="image/ico" href="{% static 'css/images/starry_guitar_icon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
@@ -31,6 +32,10 @@
     </div>
   </div>
 </div>
+  {% block footer %}
+    {% include "includes/footer.html" %}
+  {% endblock %}
 </body>
+
 
 </html>

@@ -1,24 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ visitor.username }}
-    <a href="{% url 'bar:visitor-delete' pk=visitor.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-  </h1>
+  <div class="section-name">
+    <p>Private cabinet: </p>
+  </div>
 
-  <p><strong>First name:</strong> {{ visitor.first_name }}</p>
-  <p><strong>Last name:</strong> {{ visitor.last_name }}</p>
+  <article>
+    <h2>
+    Username: {{ visitor.username }}
+      <a href="{% url 'bar:visitor-delete' pk=visitor.id %}" class="btn btn-danger btn-reverse link-to-page">
+        Delete
+      </a>
+    </h2>
+    <p><strong>First name:</strong> {{ visitor.first_name }}</p>
+    <p><strong>Last name:</strong> {{ visitor.last_name }}</p>
+  </article>
+
 
   <div class="ml-3">
-    <h4>Event, you want to visit:</h4>
+    <h4 class="description-style">Events, you want to visit:</h4>
 
     {% for event in visitor.events.all %}
       <hr>
         <p>
           <strong>Event:</strong>
-          <a href="{% url 'bar:event-detail' pk=event.id %}">
+          <a class="description-style" href="{% url 'bar:event-detail' pk=event.id %}">
             {{ event.name }}
           </a>
         </p>
@@ -26,5 +32,5 @@
       <p>No events!</p>
     {% endfor %}
   </div>
-  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Return</a>
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary btn-custom">Return</a>
 {% endblock %}

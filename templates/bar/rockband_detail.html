@@ -1,40 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
+  <div class="section-name">
     <p>Band name: </p>
-  </h1>
+  </div>
+  <h2>
   {{ rockband.band_name }}
-  <h1>
-    Musicians that playing in this band:
-  </h1>
-  <hr>
-  <div class="container">
-  <div>
+  </h2>
+  <div class="section-name">
+    <p>Musicians that playing in this band: </p>
+  </div>
+  <div class="container-home-page">
+    <div class="container-home-page">
       {% for musician in rockband.musicians.all %}
-        <div id="con2" style="border-style: solid; width: 150px">
-          <a href="{% url "bar:musician-detail" pk=musician.id %} ">
+        <div class="front-block">
+          <a class="nav-link" href="{% url "bar:musician-detail" pk=musician.id %} ">
             {{ musician.first_name }} {{ musician.last_name }}
           </a>
         </div>
       {% endfor %}
     </div>
-    <div>
-      <div>
-        <a href="{% url "bar:genre-detail" pk=rockband.genres.id %} ">
-          {{ rockband.genres.name }}
-        </a>
-      </div>
-    </div>
   </div>
 
-  <h1>
+  <div class="section-name">
     Genre that this band represents:
-  </h1>
-  <hr>
-    <a href="{% url "bar:genre-detail" pk=rockband.genres.id %} ">
+  </div>
+    <a class="nav-link" href="{% url "bar:genre-detail" pk=rockband.genres.id %} ">
     {{ rockband.genres.name }}
     </a>
   <hr>
-    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Return</a>
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary btn-custom">Return</a>
 {% endblock %}

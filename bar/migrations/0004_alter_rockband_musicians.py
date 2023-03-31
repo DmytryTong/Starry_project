@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='rockband',
             name='musicians',
-            field=models.ManyToManyField(related_name='rockbands', to='bar.musician'),
+            field=models.ManyToManyField(
+                related_name='rockbands',
+                to='bar.musician'
+            ),
         ),
     ]

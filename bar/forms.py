@@ -1,9 +1,49 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from django.core.exceptions import ValidationError
+
 
 from bar.models import Visitor, Rockband, Genre, Musician, Position, Event
+
+
+class EventForm(forms.ModelForm):
+    visitors = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
+
+    bands = forms.ModelMultipleChoiceField(
+        queryset=Rockband.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
+
+    class Meta:
+        model = Event
+        fields = "__all__"
+
+
+class RockbandForm(forms.ModelForm):
+
+    musicians = forms.ModelMultipleChoiceField(
+        queryset=Musician.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
+
+    class Meta:
+        model = Musician
+        fields = "__all__"
+
+
+class MusicianForm(forms.ModelForm):
+
+    position = forms.ModelMultipleChoiceField(
+        queryset=Position.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
+
+    class Meta:
+        model = Musician
+        fields = "__all__"
 
 
 class PositionCreationForm(forms.Form):
@@ -11,20 +51,24 @@ class PositionCreationForm(forms.Form):
         model = Position
         fields = "__all__"
 
+
 class GenreCreationForm(forms.Form):
     class Meta:
         model = Genre
         fields = "__all__"
+
 
 class MusicianCreationForm(forms.Form):
     class Meta:
         model = Musician
         fields = "__all__"
 
+
 class RockbandCreationForm(forms.Form):
     class Meta:
         model = Rockband
         fields = "__all__"
+
 
 class VisitorCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
@@ -34,10 +78,12 @@ class VisitorCreationForm(UserCreationForm):
             "last_name",
         )
 
+
 class EventCreationForm(forms.Form):
     class Meta:
         model = Event
         fields = "__all__"
+
 
 class PositionSearchForm(forms.Form):
     name = forms.CharField(
@@ -51,6 +97,7 @@ class PositionSearchForm(forms.Form):
         ),
     )
 
+
 class GenreSearchForm(forms.Form):
     name = forms.CharField(
         max_length=255,
@@ -62,6 +109,7 @@ class GenreSearchForm(forms.Form):
             }
         ),
     )
+
 
 class MusicianSearchForm(forms.Form):
     last_name = forms.CharField(
@@ -75,6 +123,7 @@ class MusicianSearchForm(forms.Form):
         ),
     )
 
+
 class RockbandSearchForm(forms.Form):
     band_name = forms.CharField(
         max_length=255,
@@ -86,6 +135,7 @@ class RockbandSearchForm(forms.Form):
             }
         ),
     )
+
 
 class EventSearchForm(forms.Form):
     name = forms.CharField(
@@ -99,3 +149,15 @@ class EventSearchForm(forms.Form):
         ),
     )
 
+
+class VisitorSearchForm(forms.Form):
+    username = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by username"
+            }
+        ),
+    )

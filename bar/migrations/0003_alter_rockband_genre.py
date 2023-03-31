@@ -7,13 +7,21 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bar', '0002_genre_position_remove_rockband_number_of_members_and_more'),
+        (
+            'bar',
+            '0002_genre_position_remove_rockband_number_of_members_and_more'
+        ),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='rockband',
             name='genre',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='rockbands', to='bar.genre'),
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name='rockbands',
+                to='bar.genre'
+            ),
         ),
     ]
