@@ -19,6 +19,7 @@ gti clone https://github.com/DmytryTong/Starry_project
 cd Starry_project
 python3 - venv venv
 source venv/bin/activate
+pip install -r requirements.txt
 python manage.py runserver
 ```
 
