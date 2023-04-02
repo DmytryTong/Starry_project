@@ -3,7 +3,14 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
 
-from bar.models import Visitor, Rockband, Genre, Musician, Position, Event
+from bar.models import (
+    Visitor,
+    Rockband,
+    Genre,
+    Musician,
+    Position,
+    Event
+)
 
 
 class EventForm(forms.ModelForm):
@@ -30,7 +37,7 @@ class RockbandForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Musician
+        model = Rockband
         fields = "__all__"
 
 
