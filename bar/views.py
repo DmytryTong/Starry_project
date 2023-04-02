@@ -27,7 +27,6 @@ from bar.models import (
 )
 
 
-# Create your views here.
 def index(request: HttpRequest) -> HttpResponse:
     """View function for the home page of this site"""
 

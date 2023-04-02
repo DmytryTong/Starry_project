@@ -10,7 +10,6 @@ from bar.models import (
     Visitor
 )
 
-# Register your models here.
 admin.site.register(Genre)
 admin.site.register(Position)
 admin.site.register(Musician)
