@@ -15,13 +15,22 @@ Django project for a website of a "Starry" music-bar.
 pyton 3.11 must be already installed
 
 ```shell
-gti clone https://github.com/DmytryTong/Starry_project
+git clone https://github.com/DmytryTong/Starry_project
 cd Starry_project
 python3 - venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
+
+Enviromental variables:
+
+    PYTHONUNBUFFERED=1;
+    DJANGO_SETTINGS_MODULE=config.settings;
+    DATABASE_URL=postgres://tqrtiugs:pmd_Ydaz25_AZm5slUSjDcesedKxWlRX@snuffleupagus.db.elephantsql.com/tqrtiugs;
+    DJANGO_DEBUG=True
 
 ## Project description
 ```
