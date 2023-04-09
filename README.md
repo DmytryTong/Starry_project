@@ -2,6 +2,22 @@
 
 Django project for a website of a "Starry" music-bar.
 
+## Link to wedsite
+
+https://starry-music-bar.onrender.com
+
+## Credentials to enter 
+```
+For regular user:
+
+username: test_user
+password: test_password46yhh66
+
+For admin:
+
+username: admin
+password: YJNMIO88kjjg47j9o2w
+```
 
 ## Features
 
@@ -83,11 +99,7 @@ bands, positions, genres pages according to your needs.
 ![Starry_diagramm.drawio.png](starry_screenshots%2FStarry_diagramm.drawio.png)
 
 ## Demo
-![Demo.png](Demo.png)
+![Demo.png](starry_screenshots/Demo.png)
 ![Starry - Event_list_page.png](starry_screenshots%2FStarry%20-%20Event_list_page.png)
 ![Starry - Private_cabinet.png](starry_screenshots%2FStarry%20-%20Private_cabinet.png)
 ![Starry - Band_detail_page.png](starry_screenshots%2FStarry%20-%20Band_detail_page.png)
-
-## Link to wedsite
-
-https://starry-music-bar.onrender.com
